@@ -34,6 +34,7 @@ const shopifyRequest = async (query, variables = {}) => {
 
 // Create product API endpoint
 shop2Appservice.post('/api/create-product', async (req, res) => {
+  // query for creating product
   const createProductMutation = `
     mutation productCreate($input: ProductInput!) {
       productCreate(input: $input) {
@@ -55,6 +56,33 @@ shop2Appservice.post('/api/create-product', async (req, res) => {
   }
 });
 
+// Get all products API endpoint
+shop2Appservice.get('/api/get-all-products', async (req, res) => {
+  
+  /* For retrieving all the products form the development store we have to maintain a variable which detects the next page existance "hasNextPage" after fetching first 50 products it fetches the nextpageproduct if it exists then do again query for next 50 products and query goes on untill hastNextPage === false */
+  
+  const getAllProductsQuery = `
+    query getAllProducts($cursor: String) {
+      products(first: 50, after: $cursor) {
+        pageInfo {
+          hasNextPage
+        }
+        edges {
+          node {
+            title
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const result = await shopifyRequest(getAllProductsQuery);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 shop2Appservice.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
