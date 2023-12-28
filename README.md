@@ -20,7 +20,17 @@ Before running the application, ensure you have the following:
    ```bash
    git clone https://github.com/Manas-Nigam/Shop2App-Assignment.git
    cd manas-development-store-app
-
+   ```
+   
+2. Create a .env file:
+    
+   ```sh
+   SHOP=manas-development-store.myshopify.com
+   ACCESS_TOKEN=your-access-token
+   API_VERSION=2023-04
+   PORT=3000
+   ```
+   
 # API endpoints
 
 
