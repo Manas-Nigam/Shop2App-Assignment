@@ -30,8 +30,14 @@ Before running the application, ensure you have the following:
 - Description: Create a new product in the "Manas Development Store."
 - Request: http://localhost:3000/api/create-product
 
+![image](https://github.com/Manas-Nigam/Shop2App-Assignment/assets/82052968/a1a12ba6-b69a-4fd5-a31e-258cdd00767b)
+
+
 ## 2. Get All Products
 
 - Endpoint: 'GET /api/get-all-products'
 - Description: Retrieve all products from the "Manas Development Store."
 - Request: http://localhost:3000/api/get-all-products
+
+
+![image](https://github.com/Manas-Nigam/Shop2App-Assignment/assets/82052968/10a3a947-0995-4d0b-b627-75cb821672b4)
