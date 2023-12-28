@@ -51,3 +51,14 @@ Before running the application, ensure you have the following:
 
 
 ![image](https://github.com/Manas-Nigam/Shop2App-Assignment/assets/82052968/10a3a947-0995-4d0b-b627-75cb821672b4)
+
+
+# Reference Links:
+
+- https://partners.shopify.com/signup
+- https://help.shopify.com/en/partners/dashboard/managing-stores/development-stores#create-a-development-store
+- https://shopify.dev/docs/apps/getting-started/create
+- https://shopify.dev/docs/api/admin-graphql
+
+
+
