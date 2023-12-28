@@ -1,7 +1,5 @@
 import express from "express";
 import axios from "axios";
-// import shopifyRequest from "./utils.js";
-import router from "./routes.js";
 import dotenv from "dotenv";
 dotenv.config();
 
