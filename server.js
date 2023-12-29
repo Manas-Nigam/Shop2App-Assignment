@@ -34,22 +34,35 @@ const shopifyRequest = async (query, variables = {}) => {
 
 // Create product API endpoint
 shop2Appservice.post('/api/create-product', async (req, res) => {
-  // query for creating product
+  const { title, productType, vendor, description, price } = req.body;
+  
+  //Example of Request body, it should be like this
+  // const title = "Best Snowboard"
+  // const vendor = "Manas Nigam"
+  // const productType = "Snowboard"
+  // const description = "<p>This is the best snoowboard </p>"
+  // const price = 10.12
+  
   const createProductMutation = `
-    mutation productCreate($input: ProductInput!) {
-      productCreate(input: $input) {
-        product {
-          id
-          title
+   mutation {
+        productCreate(input: {
+          title: "${title}",
+          productType: "${productType}",
+          vendor: "${vendor}",
+          descriptionHtml: "${description}",
+          variants:{
+          price:${price} 
+          }
+        }) {
+          product {
+            id
+          }
         }
       }
-    }
   `;
 
   try {
-    const result = await shopifyRequest(createProductMutation, {
-      input: req.body,
-    });
+    const result = await shopifyRequest(createProductMutation);
     res.json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -83,6 +96,7 @@ shop2Appservice.get('/api/get-all-products', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 shop2Appservice.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
